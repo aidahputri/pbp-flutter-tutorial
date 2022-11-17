@@ -1,4 +1,5 @@
-import 'package:myapp/form.dart';
+import 'package:myapp/page/form.dart';
+import 'package:myapp/page/to_do_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,15 +11,15 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-    Widget build(BuildContext context) {
-        return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-            primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(),
-        );
-    }
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -82,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+
             ListTile(
               title: const Text('Form'),
               onTap: () {
@@ -92,9 +94,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+              },
+            ),
           ],
         ),
-        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
